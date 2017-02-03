@@ -1,0 +1,37 @@
+version: '2'
+services:
+  app:
+    build: ./docker/app
+    volumes:
+      - .:/var/www/html
+    command: "true"
+  workspace:
+    build: ./docker/workspace
+    volumes_from:
+      - app
+    links:
+      - elasticsearch
+      - php
+      - nginx
+    tty: true
+  nginx:
+    build: ./docker/nginx
+    ports:
+      - 80:80
+    links:
+      - php
+    volumes_from:
+      - app
+  php:
+    image: php:7.0-fpm
+    expose:
+      - "9000"
+    volumes_from:
+      - app
+  elasticsearch:
+    build: ./docker/elasticsearch
+    restart: always
+    expose:
+      - "9200"
+    volumes_from:
+      - app
