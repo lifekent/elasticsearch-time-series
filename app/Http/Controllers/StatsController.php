@@ -11,7 +11,34 @@ use \App\Http\Controllers\Controller;
 class StatsController extends Controller
 {
     /**
-     * Pulse event
+     * @SWG\Post(
+     *   path="/api/stats/pulse",
+     *   summary="Pulse event",
+     *   @SWG\Parameter(
+     *     name="event",
+     *     in="query",
+     *     description="Event name.",
+     *     required=true,
+     *     type="string"
+     *   ),
+     *   @SWG\Parameter(
+     *     name="domain",
+     *     in="query",
+     *     description="Event domain.",
+     *     required=false,
+     *     type="string"
+     *   ),
+     *   @SWG\Parameter(
+     *     name="url",
+     *     in="query",
+     *     description="Event url.",
+     *     required=false,
+     *     type="string"
+     *   ),
+     *   @SWG\Response(response=200, description="Successful pulse. Event saved in the storage"),
+     *   @SWG\Response(response=400, description="Validation error"),
+     *   @SWG\Response(response=500, description="Internal server error")
+     * )
      * @param  \Illuminate\Http\Request $request
      * @return Illuminate\Http\JsonResponse
      */
