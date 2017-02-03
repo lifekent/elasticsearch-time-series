@@ -6,7 +6,7 @@ namespace Stats\Storage;
  * Stats storage interface
  * @author Roman Nehrulenko <roman@agently.io>
  */
-interface IStorage
+interface StorageInterface
 {
 	/**
 	 * Get client

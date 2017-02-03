@@ -6,7 +6,7 @@ namespace Stats\Storage;
  * Base storage class
  * @author Roman Nehrulenko <roman@agently.io>
  */
-abstract class Base implements IStorage
+abstract class AbstractBase implements StorageInterface
 {
     public $from, $to, $filters;
 
