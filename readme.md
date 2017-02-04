@@ -2,14 +2,16 @@
 
 You can easily send/track any events type, single (f.e. mouse click, audio/video start, ad start/stop), repeatable (f.e. audio/video pause/progress) etc
 
-Available options:
+##### Available options:
+
 1. Events tracking
 2. Reports by:
-..* Total number of events by event type for a given period
-..* Histogram for a given period by the given interval
+  * Total number of events by event type for a given period
+  * Histogram for a given period by the given interval
 
-##### Documentation
+#### Documentation
 API documentation available with [http://swagger.io/](http://swagger.io/)
+
 ElasticSearch documentation [https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html](https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html)
 
 ###### POST request parameters must be a JSON string
