@@ -1,0 +1,130 @@
+{
+    "swagger": "2.0",
+    "paths": {
+        "/api/report/count": {
+            "get": {
+                "summary": "Get events count",
+                "parameters": [
+                    {
+                        "name": "event",
+                        "in": "query",
+                        "description": "Event name.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "filters",
+                        "in": "query",
+                        "description": "Report filters.",
+                        "required": false,
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Report with the events count.",
+                        "schema": {
+                            "type": "array"
+                        }
+                    },
+                    "400": {
+                        "description": "Validation error"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/api/report/histogram": {
+            "get": {
+                "summary": "Get events count histogram",
+                "parameters": [
+                    {
+                        "name": "event",
+                        "in": "query",
+                        "description": "Event name.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "interval",
+                        "in": "query",
+                        "description": "Histogram interval: year, quarter, month, week, day, hour, minute, second",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "filters",
+                        "in": "query",
+                        "description": "Report filters.",
+                        "required": false,
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Report with the events count histogram",
+                        "schema": {
+                            "type": "array"
+                        }
+                    },
+                    "400": {
+                        "description": "Validation error"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/api/stats/pulse": {
+            "post": {
+                "summary": "Pulse event",
+                "parameters": [
+                    {
+                        "name": "event",
+                        "in": "query",
+                        "description": "Event name.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "domain",
+                        "in": "query",
+                        "description": "Event domain.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "url",
+                        "in": "query",
+                        "description": "Event url.",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful pulse. Event saved in the storage"
+                    },
+                    "400": {
+                        "description": "Validation error"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {}
+}

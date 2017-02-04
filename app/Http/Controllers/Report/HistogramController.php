@@ -18,14 +18,14 @@ class HistogramController extends Controller
      *     name="event",
      *     in="query",
      *     description="Event name.",
-     *     required=required,
+     *     required=true,
      *     type="string"
      *   ),
      *   @SWG\Parameter(
      *     name="interval",
      *     in="query",
      *     description="Histogram interval: year, quarter, month, week, day, hour, minute, second",
-     *     required=required,
+     *     required=true,
      *     type="string"
      *   ),
      *   @SWG\Parameter(

@@ -20,7 +20,7 @@ class CountController extends Controller
      *     name="event",
      *     in="query",
      *     description="Event name.",
-     *     required=required,
+     *     required=true,
      *     type="string"
      *   ),
      *   @SWG\Parameter(
