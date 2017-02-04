@@ -11,7 +11,42 @@ class HistogramController extends Controller
 {
 
     /**
-     * Get histogram
+     * @SWG\Get(
+     *   path="/api/report/histogram",
+     *   summary="Get events count histogram",
+     *   @SWG\Parameter(
+     *     name="event",
+     *     in="query",
+     *     description="Event name.",
+     *     required=required,
+     *     type="string"
+     *   ),
+     *   @SWG\Parameter(
+     *     name="interval",
+     *     in="query",
+     *     description="Histogram interval: year, quarter, month, week, day, hour, minute, second",
+     *     required=required,
+     *     type="string"
+     *   ),
+     *   @SWG\Parameter(
+     *     name="filters",
+     *     in="query",
+     *     description="Report filters.",
+     *     required=false,
+     *     type="array",
+     *     @SWG\Items(type="string"),
+     *     collectionFormat="multi"
+     *   ),
+     *   @SWG\Response(
+     *       response=200, 
+     *       description="Report with the events count histogram",
+     *       @SWG\Schema(
+     *           type="array"
+     *       )
+     *   ),
+     *   @SWG\Response(response=400, description="Validation error"),
+     *   @SWG\Response(response=500, description="Internal server error")
+     * )
      * @param  \Illuminate\Http\Request $request
      * @return Illuminate\Http\JsonResponse
      */
