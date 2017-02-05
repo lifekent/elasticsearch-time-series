@@ -2,13 +2,11 @@
 
 namespace Stats\Report;
 
-use \Stats\Report\Base;
-
 /**
 * Count report
 * @author Roman N. <roman@agently.io>
 */
-class Count extends Base
+class Count extends AbstractBase
 {
 
 	/**

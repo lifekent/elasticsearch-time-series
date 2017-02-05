@@ -2,13 +2,11 @@
 
 namespace Stats\Report;
 
-use \Stats\Report\Base;
-
 /**
 * Histogram report
 * @author Roman N. <roman@agently.io>
 */
-class Histogram extends Base
+class Histogram extends AbstractBase
 {
 
     /**

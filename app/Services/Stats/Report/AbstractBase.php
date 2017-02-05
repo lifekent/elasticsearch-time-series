@@ -6,7 +6,7 @@ namespace Stats\Report;
  * Base stats report class
  * @author Roman N. <roman@agently.io>
  */
-abstract class Base
+abstract class AbstractBase
 {
 	public $from, $to, $filters;
 
