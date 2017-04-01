@@ -1,6 +1,6 @@
 
 # Elasticsearch as a time-series storage
-[![Code Climate](https://codeclimate.com/github/lifekent/elasticsearch-time-series/badges/gpa.svg)](https://codeclimate.com/github/lifekent/elasticsearch-time-series)
+[![Issue Count](https://codeclimate.com/github/lifekent/elasticsearch-time-series/badges/issue_count.svg)](https://codeclimate.com/github/lifekent/elasticsearch-time-series)
 #### Built with PHP and Lumen (Laravel) framework
 
 You can easily send/track any events type, single (f.e. mouse click, audio/video start, ad start/stop), repeatable (f.e. audio/video pause/progress) etc
