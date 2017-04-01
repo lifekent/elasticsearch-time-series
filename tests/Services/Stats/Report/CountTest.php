@@ -3,7 +3,7 @@
 class CountTest extends TestCase
 {
 
-    public function provide_get()
+    public function provideGet()
     {
         $data  = [
             'event'     => 'audio.start',
@@ -17,10 +17,10 @@ class CountTest extends TestCase
     }
 
     /**
-     * @dataProvider provide_get
+     * @dataProvider provideGet
      * @return void
      */
-    public function test_get($input, $count)
+    public function testGet($input, $count)
     {
         $this->truncateStorage($input['event']);
         
@@ -35,7 +35,7 @@ class CountTest extends TestCase
     }
 
 
-    public function provide_get_interval()
+    public function provideGetInterval()
     {
         $data  = [
             'event'     => 'audio.start',
@@ -49,10 +49,10 @@ class CountTest extends TestCase
     }
 
     /**
-     * @dataProvider provide_get_interval
+     * @dataProvider provideGetInterval
      * @return void
      */
-    public function test_get_interval($input, $count, $fromDaysAgo, $toDaysAgo, $generateForDay)
+    public function testGetInterval($input, $count, $fromDaysAgo, $toDaysAgo, $generateForDay)
     {
         $this->truncateStorage($input['event']);
         
@@ -78,7 +78,7 @@ class CountTest extends TestCase
     }
 
 
-    public function provide_get_filtered()
+    public function provideGetFiltered()
     {
         $data  = [
             [
@@ -114,10 +114,10 @@ class CountTest extends TestCase
 
     /**
      * Test get total number of events filtered by the uid parameter
-     * @dataProvider provide_get_filtered
+     * @dataProvider provideGetFiltered
      * @return void
      */
-    public function test_get_filtered($filterEvent, $data, $count, $iterations)
+    public function testGetFiltered($filterEvent, $data, $count, $iterations)
     {
         $this->truncateStorage($filterEvent);
         

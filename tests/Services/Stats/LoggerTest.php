@@ -3,7 +3,7 @@
 class LoggerTest extends TestCase
 {
 
-	public function provide_successful_pulse()
+	public function provideSuccessfulPulse()
 	{
 		$input = [
 			'event' 	=> 'ad.start',
@@ -18,9 +18,9 @@ class LoggerTest extends TestCase
 
 
 	/**
-	 * @dataProvider provide_successful_pulse
+	 * @dataProvider provideSuccessfulPulse
 	 */
-	public function test_successful_pulse($input)
+	public function testSuccessfulPulse($input)
 	{
 		$logger = new \Stats\Logger;
 
@@ -32,7 +32,7 @@ class LoggerTest extends TestCase
 	}
 
 
-	public function provide_create_event()
+	public function provideCreateEvent()
 	{
 		$input = [
 			'event' 	=> 'ad.close',
@@ -47,9 +47,9 @@ class LoggerTest extends TestCase
 
 
 	/**
-	 * @dataProvider provide_create_event
+	 * @dataProvider provideCreateEvent
 	 */
-	public function test_create_event($input)
+	public function testCreateEvent($input)
 	{
 		$logger = new \Stats\Logger;
 

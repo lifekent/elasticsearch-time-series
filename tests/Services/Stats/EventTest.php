@@ -2,7 +2,7 @@
 
 class EventTest extends TestCase
 {
-    public function provide_prepare_event()
+    public function providePrepareEvent()
     {
         $input = [
             'event'     => 'ad.skip',
@@ -17,9 +17,9 @@ class EventTest extends TestCase
 
 
     /**
-     * @dataProvider provide_prepare_event
+     * @dataProvider providePrepareEvent
      */
-    public function test_prepare_event($input)
+    public function testPrepareEvent($input)
     {
         $e = new \Stats\Event($input);
 
@@ -32,7 +32,7 @@ class EventTest extends TestCase
     }
 
 
-    public function provide_prepare_session_event()
+    public function providePrepareSessionEvent()
     {
         $input = [
             'event'     => 'ad.skip',
@@ -49,9 +49,9 @@ class EventTest extends TestCase
 
     /**
      * Event with a session
-     * @dataProvider provide_prepare_session_event
+     * @dataProvider providePrepareSessionEvent
      */
-    public function test_prepare_session_event($input)
+    public function testPrepareSessionEvent($input)
     {
         $e = new \Stats\Event($input);
 

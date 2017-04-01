@@ -3,7 +3,7 @@
 class CountContollerTest extends TestCase
 {
 
-    public function provide_index()
+    public function provideIndex()
     {
         $input = [
             'event'     => 'ad.start',
@@ -18,25 +18,25 @@ class CountContollerTest extends TestCase
 
 
     /**
-     * @dataProvider provide_index
+     * @dataProvider provideIndex
      */
-    public function test_index($input, $count)
+    public function testIndex($input, $count)
     {
         $this->truncateStorage($input['event']);
         
         $this->generate($input, time(), $count);
 
         $this->json('get', 'api/report/count', ['event' => 'ad.start'])
-             ->seeJson([
-                 'total' => $count,
-             ]);
+            ->seeJson([
+                'total' => $count,
+            ]);
     }
 
 
     /**
      * Validation error
      */
-    public function test_index_validation_error()
+    public function testIndexValidationError()
     {
         $this->get('api/report/count')
             ->seeJsonStructure([

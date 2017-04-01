@@ -3,7 +3,7 @@
 class HistogramTest extends TestCase
 {
 
-    public function provide_get()
+    public function provideGet()
     {
         $data  = [
             'event'     => 'audio.start',
@@ -17,10 +17,10 @@ class HistogramTest extends TestCase
     }
 
     /**
-     * @dataProvider provide_get
+     * @dataProvider provideGet
      * @return void
      */
-    public function test_get($input, $iterations, $countStart, $countStop, $interval)
+    public function testGet($input, $iterations, $countStart, $countStop, $interval)
     {
         $this->truncateStorage($input['event']);
 

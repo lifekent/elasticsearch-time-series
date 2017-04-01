@@ -3,7 +3,7 @@
 class StatsContollerTest extends TestCase
 {
 
-    public function provide_pulse()
+    public function providePulse()
     {
         $input = [
             'event'     => 'ad.start',
@@ -18,9 +18,9 @@ class StatsContollerTest extends TestCase
 
 
     /**
-     * @dataProvider provide_pulse
+     * @dataProvider providePulse
      */
-    public function test_pulse($input)
+    public function testPulse($input)
     {
         $this->json('post', 'api/stats/pulse', $input)
             ->seeJson($input); 
@@ -28,7 +28,7 @@ class StatsContollerTest extends TestCase
     }
 
 
-    public function provide_pulse_uid()
+    public function providePulseUID()
     {
         $input = [
             'id'        => 123,
@@ -44,16 +44,16 @@ class StatsContollerTest extends TestCase
 
 
     /**
-     * @dataProvider provide_pulse_uid
+     * @dataProvider providePulseUID
      */
-    public function test_pulse_uid($input)
+    public function testPulseUID($input)
     {
         $this->json('post', 'api/stats/pulse', $input)
             ->seeJson($input); 
 
     }
 
-    public function provide_pulse_validation_error()
+    public function providePulseValidationError()
     {
         $input = [
             'domain'    => 'agently.io',
@@ -67,9 +67,9 @@ class StatsContollerTest extends TestCase
 
 
     /**
-     * @dataProvider provide_pulse_validation_error
+     * @dataProvider providePulseValidationError
      */
-    public function test_pulse_validation_error($input)
+    public function testPulseValidationError($input)
     {
         $this->post('api/stats/pulse', $input)
             ->seeJsonStructure([
