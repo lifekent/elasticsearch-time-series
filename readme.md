@@ -1,22 +1,47 @@
-### Basic example of using Elasticsearch as a time-series storage with PHP and Laravel/Lumen framework
+### Basic example of using Elasticsearch as a time-series storage with PHP and Lumen (Laravel) framework
 
 You can easily send/track any events type, single (f.e. mouse click, audio/video start, ad start/stop), repeatable (f.e. audio/video pause/progress) etc
 
-#### Available options:
+#### What's included:
 
 1. Events tracking
-2. Reports by:
-  * Total number of events by event type for a given period
+2. Reports:
+  * Total number of events by a requested event type for a given period
   * Histogram for a given period by the given interval
+  
+#### Instalation
+You can run app on an existing LAMP/LEMP stack or with the provided Docker compose configuration
 
-#### Documentation
-API documentation available with [http://swagger.io/](http://swagger.io/)
+##### Running inside Docker
+1. Build containers
+$ cd /project_root && docker-compose build
+2. Run docker
+$ docker-compose up -d
+3. Login to the workspace container
+$ docker-compose run workspace bash
+Repeat steps from 
 
-ElasticSearch documentation [https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html](https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html)
+##### Configure app
+1. Create a new Elasticsearch index, from the project root:
+$ curl -XPUT "https://elastichost/indexname/typename" -d @database/esmappings.json
+2. Install project dependencies
+$ php composer.phar install
+3. Create and fill with the appropriate values your .env file
+$ cp .env.example .env
+4. Cache routes
+$ php artisan route:cache
 
-##### POST request parameters must be a JSON string
-Response has a "session" key which can be used as a session for sending an associated events, f.e. audio progress for the same audio item
+##### API Documentation
+API documentation available with a [http://swagger.io/](http://swagger.io/)
 
-##### Notes:
-  * Don't forget to put right mappings for the time field (check config/database.php)
-  * Use "elasticsearch/elasticsearch: 5.0" dependency if you use ElasticSearch >= 5.0
+#### Usage
+##### Events tracking (POST request parameters must be a valid JSON string)
+$ curl -H "Content-Type: application/json" -X POST "https://example.com/api/stats/pulse" -d '{"event":"audiostart", "domain":"https://video.example.com", "uid":"123"}' 
+
+Response has a "session" key which can be used as a session for sending an associated events, f.e. audio progress for the same
+audio or video
+
+##### Reporting API
+Available at 
+https://example.com/api/count - Total events
+https://example.com/api/histogram - Date histogram
