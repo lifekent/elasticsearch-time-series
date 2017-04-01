@@ -18,8 +18,15 @@ class TestingServiceProvider extends ServiceProvider
             return;
         }
 
-        $es = new \Stats\Storage\ElasticSearch();
-        $res = $es->truncate('ad.start');
+        // Truncate all test index types
+        $es = new \Stats\Storage\ElasticSearch;
+
+        $types = config('database.types');
+
+        foreach ($types as $t) 
+        {
+            $es->truncate($t);
+        }
 
         define("IS_TESTING", true);      
     }

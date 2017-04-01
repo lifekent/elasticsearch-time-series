@@ -24,5 +24,12 @@ return [
             ]
 
         ]
+    ],
+
+    'types' => [
+        'video_play',
+        'video_stop',
+        'ad_start',
+        'ad_close'
     ]
 ];

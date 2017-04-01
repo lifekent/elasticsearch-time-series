@@ -36,12 +36,10 @@ abstract class AbstractBase implements StorageInterface
     {
         if ($nested)
         {
-            $this->params[$nested][$field] = $value;
+            return $this->params[$nested][$field] = $value;
         }
-        else
-        {
-            $this->params[$field] = $value;
-        }
+        
+        return $this->params[$field] = $value;
     }
 
     /**
@@ -52,4 +50,5 @@ abstract class AbstractBase implements StorageInterface
     {
         return $this->params;
     }
+    
 }
