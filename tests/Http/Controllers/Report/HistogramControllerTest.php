@@ -23,10 +23,7 @@ class CountContollerTest extends TestCase
     {
         $this->truncateStorage($input['event']);
         
-        foreach ($variable as $key => $value) 
-        {
-            $this->generate($input, time(), $count);
-        }
+        $this->generate($input, time(), $count);
 
         $this->json('get', 'api/report/count', ['event' => 'audio.start'])
             ->seeJson([

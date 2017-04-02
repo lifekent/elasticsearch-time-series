@@ -27,7 +27,6 @@ class HistogramTest extends TestCase
         for ($i = 0; $i < $iterations; $i++) 
         { 
             $count = rand($countStart, $countStop);
-            $hour = rand(1, $iterations);
             $time = strtotime("$i hours ago");
 
             $this->generate($input, $time, $count);
@@ -49,7 +48,7 @@ class HistogramTest extends TestCase
             $response[$date->getTimestamp()] = $v;
         }
 
-        foreach ($histogram as $key => $value) 
+        foreach ($histogram as $value) 
         {
             $this->assertEquals($value['doc_count'], $response[(int)$value['key_as_string']]);
         }
