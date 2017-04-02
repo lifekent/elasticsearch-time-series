@@ -46,5 +46,5 @@ audio or video
 
 #### Reporting API
 Available at 
-https://example.com/api/count - Total events
-https://example.com/api/histogram - Date histogram
+* https://example.com/api/count - Total events
+* https://example.com/api/histogram - Date histogram
