@@ -48,8 +48,6 @@ class CountController extends Controller
      */
     public function get(CountReportRequest $request)
     {
-        $input = $request->all();
-
         try 
         {
             $report = new \Stats\Report\Count;
@@ -58,7 +56,7 @@ class CountController extends Controller
             $report->filter($this->filters);
 
             $response = [
-                'total' => $report->get($input['event']),
+                'total' => $report->get($request->input('event')),
             ];
         } 
         catch (\Exception $e) 
