@@ -40,10 +40,10 @@ class StatsController extends Controller
      *   @SWG\Response(response=400, description="Validation error"),
      *   @SWG\Response(response=500, description="Internal server error")
      * )
-     * @param  \Illuminate\Http\Request $request
+     * @param  PulseEventRequest                $request
      * @return Illuminate\Http\JsonResponse
      */
-    public function pulse(\Illuminate\Http\Request $request)
+    public function pulse(PulseEventRequest $request)
     {
         try 
         {

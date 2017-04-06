@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Report;
 
 use \App\Http\Controllers\Controller;
+use App\Http\Requests\CountReportRequest;
 
 /**
  * Count controller
@@ -42,22 +43,15 @@ class CountController extends Controller
      *   @SWG\Response(response=400, description="Validation error"),
      *   @SWG\Response(response=500, description="Internal server error")
      * )
-     * @param  \Illuminate\Http\Request $request
+     * @param  CountReportRequest               $request
      * @return Illuminate\Http\JsonResponse
      */
-    public function get(\Illuminate\Http\Request $request)
+    public function get(CountReportRequest $request)
     {
         $input = $request->all();
 
-        $validator = app('validator')->make($input, config('validation.stats.report.count'));
-
         try 
         {
-            if ($validator->fails()) 
-            {
-                throw new \Exception($validator->messages());
-            }
-
             $report = new \Stats\Report\Count;
             $report->from($this->from);
             $report->to($this->to);

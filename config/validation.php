@@ -35,7 +35,9 @@ return [
 
                 'event'         => 'required',
                 'interval'      => 'required|in:year,quarter,month,week,day,hour,minute,second'
-            ],        ]
+            ],        
+
+        ]
     ]
 
 ];
